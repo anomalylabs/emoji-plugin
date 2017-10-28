@@ -2,7 +2,7 @@
 
 return [
     'aliases'   => [
-        '^_^' => 'smile',
+        '^_^' => 'blush',
         ':)'  => 'smile',
         ':-)' => 'smile',
         ':('  => 'person_frowning',
@@ -60,6 +60,7 @@ return [
         'scream'                       => "\u{1F631}",
         'see_no_evil'                  => "\u{1F648}",
         'shit'                         => "\u{1F4A9}",
+        'shrug'                        => "\u{1F937}",
         'sleepy'                       => "\u{1F62A}",
         'smile'                        => "\u{1F604}",
         'smiley'                       => "\u{1F603}",
