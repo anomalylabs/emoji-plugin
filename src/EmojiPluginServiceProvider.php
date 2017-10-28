@@ -31,7 +31,7 @@ class EmojiPluginServiceProvider extends AddonServiceProvider
      */
     public function register(Repository $config, EmojiRegistry $registry)
     {
-        $registry->setEmojis($config->get($this->addon->getNamespace('emojis')));
+        $registry->setEmojis($config->get($this->addon->getNamespace('emojis.supported')));
     }
 
 }

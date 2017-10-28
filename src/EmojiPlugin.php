@@ -1,6 +1,7 @@
 <?php namespace Anomaly\EmojiPlugin;
 
 use Anomaly\EmojiPlugin\Emoji\Command\GetEmoji;
+use Anomaly\EmojiPlugin\Emoji\Command\ReplaceAliases;
 use Anomaly\EmojiPlugin\Emoji\Command\ReplaceEmojis;
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
 
@@ -42,6 +43,9 @@ class EmojiPlugin extends Plugin
             new \Twig_SimpleFilter(
                 'emoji',
                 function ($content) {
+
+                    $content = $this->dispatch(new ReplaceAliases($content));
+                    
                     return $this->dispatch(new ReplaceEmojis($content));
                 }
             ),
