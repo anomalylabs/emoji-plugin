@@ -1,152 +1,37 @@
 <?php namespace Anomaly\EmojiPlugin;
 
+use Anomaly\EmojiPlugin\Emoji\EmojiRegistry;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Illuminate\Routing\Router;
+use Illuminate\Contracts\Config\Repository;
 
+/**
+ * Class EmojiPluginServiceProvider
+ *
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
+ */
 class EmojiPluginServiceProvider extends AddonServiceProvider
 {
 
     /**
-     * Additional addon plugins.
+     * The addon singletons.
      *
-     * @type array|null
+     * @var array
      */
-    protected $plugins = [];
-
-    /**
-     * The addon Artisan commands.
-     *
-     * @type array|null
-     */
-    protected $commands = [];
-
-    /**
-     * The addon's scheduled commands.
-     *
-     * @type array|null
-     */
-    protected $schedules = [];
-
-    /**
-     * The addon API routes.
-     *
-     * @type array|null
-     */
-    protected $api = [];
-
-    /**
-     * The addon routes.
-     *
-     * @type array|null
-     */
-    protected $routes = [];
-
-    /**
-     * The addon middleware.
-     *
-     * @type array|null
-     */
-    protected $middleware = [
-        //Anomaly\EmojiPlugin\Http\Middleware\ExampleMiddleware::class
-    ];
-
-    /**
-     * The addon route middleware.
-     *
-     * @type array|null
-     */
-    protected $routeMiddleware = [];
-
-    /**
-     * The addon event listeners.
-     *
-     * @type array|null
-     */
-    protected $listeners = [
-        //Anomaly\EmojiPlugin\Event\ExampleEvent::class => [
-        //    Anomaly\EmojiPlugin\Listener\ExampleListener::class,
-        //],
-    ];
-
-    /**
-     * The addon alias bindings.
-     *
-     * @type array|null
-     */
-    protected $aliases = [
-        //'Example' => Anomaly\EmojiPlugin\Example::class
-    ];
-
-    /**
-     * The addon class bindings.
-     *
-     * @type array|null
-     */
-    protected $bindings = [];
-
-    /**
-     * The addon singleton bindings.
-     *
-     * @type array|null
-     */
-    protected $singletons = [];
-
-    /**
-     * Additional service providers.
-     *
-     * @type array|null
-     */
-    protected $providers = [
-        //\ExamplePackage\Provider\ExampleProvider::class
-    ];
-
-    /**
-     * The addon view overrides.
-     *
-     * @type array|null
-     */
-    protected $overrides = [
-        //'streams::errors/404' => 'module::errors/404',
-        //'streams::errors/500' => 'module::errors/500',
-    ];
-
-    /**
-     * The addon mobile-only view overrides.
-     *
-     * @type array|null
-     */
-    protected $mobile = [
-        //'streams::errors/404' => 'module::mobile/errors/404',
-        //'streams::errors/500' => 'module::mobile/errors/500',
+    protected $singletons = [
+        EmojiRegistry::class => EmojiRegistry::class,
     ];
 
     /**
      * Register the addon.
-     */
-    public function register()
-    {
-        // Run extra pre-boot registration logic here.
-        // Use method injection or commands to bring in services.
-    }
-
-    /**
-     * Boot the addon.
-     */
-    public function boot()
-    {
-        // Run extra post-boot registration logic here.
-        // Use method injection or commands to bring in services.
-    }
-
-    /**
-     * Map additional addon routes.
      *
-     * @param Router $router
+     * @param Repository $config
+     * @param EmojiRegistry $registry
      */
-    public function map(Router $router)
+    public function register(Repository $config, EmojiRegistry $registry)
     {
-        // Register dynamic routes here for example.
-        // Use method injection or commands to bring in services.
+        $registry->setEmojis($config->get($this->addon->getNamespace('emojis')));
     }
 
 }
