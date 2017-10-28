@@ -1,5 +1,12 @@
 <?php namespace Anomaly\EmojiPlugin\Emoji;
 
+/**
+ * Class EmojiRegistry
+ *
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
+ */
 class EmojiRegistry
 {
 
