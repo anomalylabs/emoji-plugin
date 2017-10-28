@@ -7,6 +7,8 @@ return [
         ':-)' => 'smile',
         ':('  => 'person_frowning',
         ':-(' => 'person_frowning',
+        ':P'  => 'stuck_out_tongue',
+        ':-P' => 'stuck_out_tongue',
     ],
     'supported' => [
         '+1'                           => "\u{1F44D}",
