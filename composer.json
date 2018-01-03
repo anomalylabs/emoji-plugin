@@ -1,9 +1,38 @@
 {
     "name": "anomaly/emoji-plugin",
     "type": "streams-addon",
+    "description": "An emoji utility for the Streams Platform.",
+    "keywords": [
+        "streams plugin",
+        "streams addon",
+        "emoji"
+    ],
+    "homepage": "http://pyrocms.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PyroCMS, Inc.",
+            "email": "support@pyrocms.com",
+            "homepage": "http://pyrocms.com/",
+            "role": "Owner"
+        },
+        {
+            "name": "Ryan Thompson",
+            "email": "ryan@pyrocms.com",
+            "homepage": "http://ryanthepyro.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@pyrocms.com"
+    },
+    "require": {
+        "anomaly/streams-platform": "^1.2"
+    },
     "autoload": {
         "psr-4": {
             "Anomaly\\EmojiPlugin\\": "src/"
         }
     }
 }
+
