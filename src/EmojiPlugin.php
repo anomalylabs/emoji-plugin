@@ -45,9 +45,10 @@ class EmojiPlugin extends Plugin
                 function ($content) {
 
                     $content = $this->dispatch(new ReplaceAliases($content));
-                    
+
                     return $this->dispatch(new ReplaceEmojis($content));
-                }
+                },
+                ['is_safe' => ['html']]
             ),
         ];
     }
