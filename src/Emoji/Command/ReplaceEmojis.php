@@ -40,7 +40,7 @@ class ReplaceEmojis
         return preg_replace_callback(
             "/(\:[+_a-z1]{1,}\:)/",
             function ($match) use ($registry) {
-                return $registry->get(substr($match[0], 1, -1));
+                return '<span class="emoji">' . $registry->get(substr($match[0], 1, -1)) . '</span>';
             },
             $this->content
         );
